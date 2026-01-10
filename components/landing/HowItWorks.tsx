@@ -30,26 +30,25 @@ const steps = [
 
 export const HowItWorks = () => {
     return (
-        <section id="how-it-works" className="py-20 bg-white">
+        <section id="how-it-works" className="py-32 bg-accent/20">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center mb-16">
-                    <motion.h2
+                <div className="text-center mb-20">
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-5xl font-bold text-primary mb-4"
                     >
-                        How Sehat Guftagu Works
-                    </motion.h2>
-                    <p className="text-xl text-gray-500 max-w-2xl mx-auto font-urdu">
-                        صحت گفتگو کا طریقہ کار
-                    </p>
+                        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 font-urdu">
+                            صحت گفتگو کا طریقہ کار
+                            <span className="block font-sans text-2xl md:text-3xl font-bold text-primary mt-2">How Sehat Guftagu Works</span>
+                        </h2>
+                    </motion.div>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-8 items-center justify-center relative">
+                <div className="flex flex-col md:flex-row gap-12 items-center justify-center relative max-w-7xl mx-auto">
 
                     {/* Connector Line (Desktop) */}
-                    <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-gray-200 via-secondary/50 to-gray-200 -z-10" />
+                    <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-border via-secondary/30 to-border -z-10" />
 
                     {steps.map((step, index) => (
                         <motion.div
@@ -58,17 +57,17 @@ export const HowItWorks = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2, duration: 0.5 }}
-                            className="relative flex flex-col items-center text-center max-w-sm"
+                            className="relative flex flex-col items-center text-center max-w-xs group"
                         >
-                            <div className={`w-24 h-24 ${step.color} rounded-full flex items-center justify-center mb-6 shadow-lg relative z-10`}>
+                            <div className={`w-32 h-32 ${step.color} rounded-full flex items-center justify-center mb-8 shadow-xl relative z-10 border-4 border-white group-hover:scale-110 transition-transform duration-500`}>
                                 {step.icon}
-                                <div className="absolute -bottom-2 bg-white px-2 py-1 rounded-full text-xs font-bold shadow-sm border border-gray-100">
+                                <div className="absolute -bottom-4 bg-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md border border-border text-foreground">
                                     Step 0{step.id}
                                 </div>
                             </div>
 
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                            <p className="text-gray-500 leading-relaxed">
+                            <h3 className="text-xl font-bold text-foreground mb-4">{step.title}</h3>
+                            <p className="text-muted leading-relaxed text-sm">
                                 {step.description}
                             </p>
                         </motion.div>

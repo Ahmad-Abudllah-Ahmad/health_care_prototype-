@@ -23,7 +23,7 @@ export const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 h-20 flex items-center">
+        <nav className="fixed top-0 left-0 right-0 z-50 glass h-20 flex items-center transition-all duration-300">
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 {/* Logo Section */}
                 <Link href="/" className="flex items-center gap-2 group">
@@ -52,7 +52,7 @@ export const Navbar = () => {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-gray-600 hover:text-primary font-medium transition-colors relative group"
+                            className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative group"
                         >
                             {link.name}
                             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full" />
@@ -64,13 +64,13 @@ export const Navbar = () => {
                 <div className="hidden md:flex items-center gap-4">
                     <Link
                         href="/login"
-                        className="px-5 py-2 text-primary font-semibold hover:bg-gray-50 rounded-full transition-colors"
+                        className="px-5 py-2 text-sm font-medium text-primary hover:bg-accent rounded-full transition-colors"
                     >
                         Login
                     </Link>
                     <Link
                         href="/signup"
-                        className="px-6 py-2 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+                        className="px-6 py-2 text-sm bg-primary text-white font-medium rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30"
                     >
                         Get Started
                     </Link>
@@ -78,7 +78,7 @@ export const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden p-2 text-gray-600 hover:text-primary"
+                    className="md:hidden p-2 text-foreground/80 hover:text-primary transition-colors"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -92,31 +92,31 @@ export const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="absolute top-20 left-0 right-0 bg-white border-b border-gray-100 md:hidden overflow-hidden"
+                        className="absolute top-20 left-0 right-0 glass border-t border-border md:hidden overflow-hidden shadow-xl"
                     >
                         <div className="flex flex-col p-6 gap-4">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-lg font-medium text-gray-700 hover:text-primary"
+                                    className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
                                 </Link>
                             ))}
-                            <hr className="border-gray-100" />
+                            <div className="h-px bg-border my-2" />
                             <div className="flex flex-col gap-3">
                                 <Link
                                     href="/login"
-                                    className="w-full py-3 text-center text-primary font-semibold border border-primary/20 rounded-xl"
+                                    className="w-full py-3 text-center text-primary font-semibold border border-primary/20 rounded-xl hover:bg-primary/5 transition-colors"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     Login
                                 </Link>
                                 <Link
                                     href="/signup"
-                                    className="w-full py-3 text-center bg-primary text-white font-semibold rounded-xl"
+                                    className="w-full py-3 text-center bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     Get Started

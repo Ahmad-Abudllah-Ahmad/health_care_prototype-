@@ -11,20 +11,23 @@ export default function AuthLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-grid-pattern relative overflow-hidden">
+        <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
             {/* Decorative Background */}
-            <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-5 -z-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent" />
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] bg-primary/5 rounded-full blur-[150px]" />
+                <div className="absolute bottom-[-20%] right-[-20%] w-[80%] h-[80%] bg-secondary/5 rounded-full blur-[150px]" />
+            </div>
 
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 font-urdu">
+                <h2 className="mt-6 text-center text-3xl font-bold text-foreground font-urdu tracking-tight">
                     خوش آمدید
                     <br />
-                    <span className="font-sans text-2xl text-primary mt-2 block">Sehat Guftagu</span>
+                    <span className="font-sans text-2xl text-primary mt-3 block">Sehat Guftagu</span>
                 </h2>
             </div>
 
-            <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow-xl shadow-gray-200/50 sm:rounded-lg sm:px-10 border border-gray-100">
+            <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-[400px]">
+                <div className="glass py-10 px-6 sm:rounded-[2rem] sm:px-10">
                     {children}
                 </div>
             </div>
